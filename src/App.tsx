@@ -14,7 +14,7 @@ import {
   ButtonGroup,
   IconButton,
 } from "@chakra-ui/react";
-import { MdClose, MdEdit, MdCheckCircle} from "react-icons/md";
+import { MdClose, MdEdit, MdCheckCircle } from "react-icons/md";
 import { theme } from "./styles/theme";
 
 // ADD TASK
@@ -32,16 +32,27 @@ function App() {
     } = useEditableControls();
 
     return isEditing ? (
-      <ButtonGroup justifyContent="center" size="sm">
-        <IconButton colorScheme='purple' icon={<MdCheckCircle />} aria-label='Check' {...getSubmitButtonProps()} />
-        <IconButton colorScheme='purple' icon={<MdClose />} aria-label='Close' {...getCancelButtonProps()} />
+      <ButtonGroup alignItems="center" justifyContent="center" size="sm">
+        <IconButton
+          colorScheme="purple"
+          icon={<MdCheckCircle />}
+          aria-label="Check"
+          {...getSubmitButtonProps()}
+        />
+        <IconButton
+          colorScheme="purple"
+          variant="outline"
+          icon={<MdClose />}
+          aria-label="Close"
+          {...getCancelButtonProps()}
+        />
       </ButtonGroup>
     ) : (
-      <Flex justifyContent="center">
+      <Flex alignItems="center" justifyContent="center">
         <IconButton
-        colorScheme='purple'
+          colorScheme="purple"
           size="sm"
-          aria-label='Edit'
+          aria-label="Edit"
           icon={<MdEdit />}
           {...getEditButtonProps()}
         />
@@ -68,6 +79,7 @@ function App() {
           >
             To-Do List
           </Text>
+          
           <InputGroup size="md">
             <Input
               placeholder="Enter Your Task"
@@ -78,16 +90,11 @@ function App() {
               }}
             />
             <InputRightElement width="4.5rem">
-              <Button colorScheme="purple" h="1.75rem" size="sm">
+              <Button colorScheme="pink" h="1.75rem" size="sm">
                 Add
               </Button>
             </InputRightElement>
           </InputGroup>
-
-          <Editable defaultValue="Studying React Hooks" >
-            <EditablePreview />
-            <EditableInput />
-          </Editable>
 
           <Editable
             textAlign="center"
@@ -95,13 +102,14 @@ function App() {
             fontSize="2xl"
             isPreviewFocusable={false}
           >
-            <EditablePreview />
-            {/* Here is the custom input */}
-            <Input as={EditableInput} />
-            <EditableControls />
+            <Flex alignContent="center" gap={4}>
+              <EditablePreview />
+              <Input as={EditableInput} focusBorderColor="pink.500" />
+              <EditableControls />
+            </Flex>
           </Editable>
 
-          <Button colorScheme="purple" variant="outline" size="md">
+          <Button colorScheme="purple" size="md">
             Delete All
           </Button>
         </Stack>
