@@ -101,6 +101,9 @@ function App() {
             defaultValue="Studying React Hooks"
             fontSize="2xl"
             isPreviewFocusable={false}
+            border='1px' borderColor='gray.200'
+            borderRadius="md"
+            padding={4}
           >
             <Flex alignContent="center" gap={4}>
               <EditablePreview />
