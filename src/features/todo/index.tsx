@@ -11,7 +11,6 @@ export function Todo() {
   const [isError, setIsError] = useState(false);
   const todos = useAppSelector((state) => state.todos.list);
   const dispatch = useAppDispatch();
-  console.log("todos", todos);
 
   function clearTodoText() {
     setIsError(false);
