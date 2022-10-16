@@ -21,7 +21,7 @@ export function AddTask({
   handleAddTodo,
 }: AddTaskProps) {
   return (
-    <InputGroup size="md"  width="14rem">
+    <InputGroup size="md"  width="16rem">
       <FormControl isInvalid={isError}>
         <Input
           value={todoText}

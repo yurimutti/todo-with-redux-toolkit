@@ -81,7 +81,7 @@ export function TodoEditable({
     <Editable
       textAlign="center"
       defaultValue={todo.text}
-      fontSize="2xl"
+      fontSize={["smaller", "xl"]}
       isPreviewFocusable={false}
       border="1px"
       borderColor="gray.500"
@@ -90,7 +90,6 @@ export function TodoEditable({
       padding={4}
       isDisabled={todo.completed}
       onSubmit={(nextText) => handleTodoTextUpdated(nextText, todo.id)}
-      minWidth="18rem"
       color={todo.completed ? "gray.500" : "inherit"}
     >
       <Flex alignItems="center" justify="space-between" gap={4}>
