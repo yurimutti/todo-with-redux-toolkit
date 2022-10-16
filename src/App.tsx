@@ -1,64 +1,14 @@
 import {
   ChakraProvider,
   Text,
-  Button,
   Flex,
-  InputGroup,
-  Input,
-  InputRightElement,
   Stack,
-  Editable,
-  EditableInput,
-  EditablePreview,
-  useEditableControls,
-  ButtonGroup,
-  IconButton,
 } from "@chakra-ui/react";
-import { MdClose, MdEdit, MdCheckCircle } from "react-icons/md";
+import { Todo } from "./features/todo";
+
 import { theme } from "./styles/theme";
 
-// ADD TASK
-// DELETE TASK
-// UPDATE TASK
-// LIST ALL TASKS
-
 function App() {
-  function EditableControls() {
-    const {
-      isEditing,
-      getSubmitButtonProps,
-      getCancelButtonProps,
-      getEditButtonProps,
-    } = useEditableControls();
-
-    return isEditing ? (
-      <ButtonGroup alignItems="center" justifyContent="center" size="sm">
-        <IconButton
-          colorScheme="purple"
-          icon={<MdCheckCircle />}
-          aria-label="Check"
-          {...getSubmitButtonProps()}
-        />
-        <IconButton
-          colorScheme="purple"
-          variant="outline"
-          icon={<MdClose />}
-          aria-label="Close"
-          {...getCancelButtonProps()}
-        />
-      </ButtonGroup>
-    ) : (
-      <Flex alignItems="center" justifyContent="center">
-        <IconButton
-          colorScheme="purple"
-          size="sm"
-          aria-label="Edit"
-          icon={<MdEdit />}
-          {...getEditButtonProps()}
-        />
-      </Flex>
-    );
-  }
 
   return (
     <ChakraProvider theme={theme}>
@@ -80,41 +30,7 @@ function App() {
             To-Do List
           </Text>
           
-          <InputGroup size="md">
-            <Input
-              placeholder="Enter Your Task"
-              focusBorderColor="pink.500"
-              bgColor="gray.800"
-              _hover={{
-                bgColor: "gray.900",
-              }}
-            />
-            <InputRightElement width="4.5rem">
-              <Button colorScheme="pink" h="1.75rem" size="sm">
-                Add
-              </Button>
-            </InputRightElement>
-          </InputGroup>
-
-          <Editable
-            textAlign="center"
-            defaultValue="Studying React Hooks"
-            fontSize="2xl"
-            isPreviewFocusable={false}
-            border='1px' borderColor='gray.200'
-            borderRadius="md"
-            padding={4}
-          >
-            <Flex alignContent="center" gap={4}>
-              <EditablePreview />
-              <Input as={EditableInput} focusBorderColor="pink.500" />
-              <EditableControls />
-            </Flex>
-          </Editable>
-
-          <Button colorScheme="purple" size="md">
-            Delete All
-          </Button>
+          <Todo />
         </Stack>
       </Flex>
     </ChakraProvider>
